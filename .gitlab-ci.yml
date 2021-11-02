@@ -1,0 +1,49 @@
+image: node:12.16.3-stretch-slim
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - install
+  - test
+  - deploy
+
+npm_install:
+  stage: install
+  script:
+    - npm install
+  tags:
+    - share2gether
+
+test_truffle:
+  stage: test
+  script:
+    - npm install -g truffle@5.1.26 solc@0.6.8 ganache-cli
+    - ganache-cli -p 7545 -l 0xE4E1C0 &
+    - truffle compile
+    - truffle migrate
+    - truffle test
+    # www part, todo make better
+    - cd www
+    - npm install
+    - npm test
+  tags:
+    - share2gether
+
+pages:
+  image: asciidoctor/docker-asciidoctor
+  stage: deploy
+  only:
+    - master
+  script:
+    - cd doc
+    - ./build.sh
+    - cd ..
+    - mkdir public
+    - cp -r doc/dist/* public
+  artifacts:
+    paths:
+      - public
+  tags:
+    - share2gether

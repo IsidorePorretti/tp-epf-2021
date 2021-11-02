@@ -1,0 +1,23 @@
+  
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+Vivien Auguy
+Jérôme Bernard
+Alain Nicolas
+Julien Rollin
+
+# THANKS
+
+TalanLabs and EPF
+
+
+# TECHNOLOGY COLOPHON
+
+CSS3, HTML5, JS (ES6+ avec babel)
+Webpack / Webpack dev server 
+EtherJS
+Mocha / chai / sinon
+Spectre CSS

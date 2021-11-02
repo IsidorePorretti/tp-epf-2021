@@ -1,0 +1,45 @@
+{
+  "name": "www",
+  "version": "1.0.0",
+  "description": "Training project by Talan Labs",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --watch --progress --inline --quiet --colors --open",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "build:prod": "webpack --mode production",
+    "test": "mocha --recursive --require @babel/register",
+    "test:watch": "mocha --recursive --watch --require @babel/register",
+    "test:coverage": "nyc mocha  --recursive "
+  },
+  "author": "Talan Labs",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "chai": "^4.2.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.2",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.3.0",
+    "mocha": "^7.2.0",
+    "nyc": "^15.0.1",
+    "sinon": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "ethers": "^4.0.47",
+    "lit-html": "^1.2.1",
+    "noty": "^3.2.0-beta",
+    "page": "^1.11.6"
+  }
+}
