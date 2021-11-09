@@ -4,7 +4,8 @@ class EtherProvider {
     constructor() {
         let provider
         // use web3 instance is already provided by MetaMask,
-        if (typeof web3 !== 'undefined') {
+        if (typeof window.ethereum !== 'undefined') {
+            window.ethereum.enable()
             provider = new ethers.providers.Web3Provider(web3.currentProvider)
         } else {
             provider = new ethers.providers.JsonRpcProvider(
