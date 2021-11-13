@@ -4,6 +4,9 @@ class VoteCandidate {
     }
 
     async castVote(electionId, candidateId, eventVoteListener) {
+        const electionContrat = await this.contractFactory.createElectionContractFromId(electionId);
+        electionContrat.onVote(electionId,candidateId,eventVoteListener);
+        electionContrat.castVote(candidateId);
     }
 }
 

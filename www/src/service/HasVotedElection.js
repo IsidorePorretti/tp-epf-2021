@@ -4,7 +4,9 @@ class HasVotedElection {
     }
 
     async hasVoted(electionId, account) {
-        return false
+        const electionContrat = await this.contractFactory.createElectionContractFromId(electionId);
+        const hasVoted = await electionContrat.haveVoted(account);
+        return hasVoted;
     }
 }
 

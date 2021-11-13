@@ -9,7 +9,14 @@ class FindElection {
 
     async getElection(electionId) {
         const electionContract = await this.contractFactory.createElectionContractFromId(electionId)
-        return {}
+        const electionName = await electionContract.getName()
+        const candidatesCount = await electionContract.getCandidatesCount()
+        let election = new Election(electionName)
+        for (let i = 0; i < candidatesCount.toNumber(); i++) {
+            const candidat = await electionContract.getCandidate(i)
+            election.addCandidate(new Candidate(candidat.id.toNumber(), candidat.name, candidat.votesCount.toNumber()))
+        }
+        return election
     }
 }
 

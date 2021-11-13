@@ -12,14 +12,16 @@ class ElectionCreatorContract {
         )
     }
 
-    getElectionsCount() {
+    async getElectionsCount() {
+        return this.contract.electionsCount();
     }
 
-    getElectionAddress(electionId) {
+    async getElectionAddress(electionId) {
+        return this.contract.electionList(electionId);
     }
 
     createNewElection(name) {
-        this.contract.newElection(name);
+        return this.contract.newElection(name);
     }
 
     addCandidate(name) {
