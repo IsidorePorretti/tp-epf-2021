@@ -24,6 +24,7 @@ class ElectionContract {
     }
 
     addCandidate(name) {
+        this.contract.addCandidate(name);
     }
 
     castVote(candidateId) {

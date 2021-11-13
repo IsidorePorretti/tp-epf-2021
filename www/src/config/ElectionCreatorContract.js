@@ -19,6 +19,11 @@ class ElectionCreatorContract {
     }
 
     createNewElection(name) {
+        this.contract.newElection(name);
+    }
+
+    addCandidate(name) {
+        this.contract.addCandidate(name);
     }
 
     onCreation(callback) {
@@ -27,6 +32,7 @@ class ElectionCreatorContract {
             callback(address)
             //@todo remove event listener ?
         })
+        
     }
 }
 
